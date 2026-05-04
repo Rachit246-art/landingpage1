@@ -1,0 +1,492 @@
+/* ============================================================
+   RV Global Aviation – Global Static Site Fixes v3.0
+   Premium Dark Navy + Crimson Gold Theme
+   ============================================================ */
+
+/* ─── PREMIUM PALETTE TOKENS ─── */
+:root {
+    --rv-navy:       #0f2b46;
+    --rv-navy-light: #1a3d60;
+    --rv-navy-dark:  #081929;
+    --rv-crimson:    #A20303;
+    --rv-crimson-bright: #BC0A20;
+    --rv-gold:       #C9A84C;
+    --rv-gold-light: #e8c96a;
+    --rv-white:      #FFFFFF;
+    --rv-offwhite:   #F8F6F2;
+    --rv-grey:       #A3A5AF;
+    --rv-text-dark:  #1a1a2e;
+    --rv-text-mid:   #444455;
+    --rv-shadow:     0 8px 32px rgba(15,43,70,0.18);
+    --rv-shadow-hover: 0 16px 48px rgba(15,43,70,0.28);
+}
+
+/* ============================================================
+   SECTION 1 – HEADER / NAVIGATION
+   ============================================================ */
+
+/* Fixed header container */
+.elementor-156 {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+    background: var(--rv-white) !important;
+    box-shadow: 0 2px 20px rgba(15,43,70,0.12) !important;
+}
+
+/* Navbar top-level section background */
+.elementor-156 .elementor-element-1a969676:not(.elementor-motion-effects-element-type-background),
+.elementor-156 .elementor-element-198db13:not(.elementor-motion-effects-element-type-background) {
+    background-color: var(--rv-white) !important;
+}
+
+/* ── Nav links ── */
+.elementor-156 .elementor-nav-menu--main .elementor-item {
+    color: var(--rv-navy) !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    padding: 8px 14px !important;
+    transition: color 0.2s ease !important;
+}
+
+.elementor-156 .elementor-nav-menu--main .elementor-item:hover,
+.elementor-156 .elementor-nav-menu--main .elementor-item.elementor-item-active,
+.elementor-156 .elementor-nav-menu--main .elementor-item.highlighted {
+    color: var(--rv-crimson) !important;
+    fill: var(--rv-crimson) !important;
+}
+
+/* ── DROPDOWN FIX – Bridge the hover gap so menu doesn't disappear ── */
+/* Extend the dropdown trigger area with a pseudo-element */
+.elementor-156 .elementor-nav-menu--main li.menu-item-has-children {
+    position: relative !important;
+}
+
+.elementor-156 .elementor-nav-menu--main li.menu-item-has-children::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;  /* covers the 14px gap + 2px buffer */
+    left: 0;
+    width: 100%;
+    height: 18px;
+    z-index: 9998;
+    background: transparent;
+}
+
+/* Keep dropdown visible when hovering the bridge */
+.elementor-156 .elementor-nav-menu--main li.menu-item-has-children:hover > .sub-menu,
+.elementor-156 .elementor-nav-menu--main li.menu-item-has-children:hover > .elementor-nav-menu--dropdown {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+}
+
+/* Override Elementor's default submenu margin-top with padding-top trick */
+.elementor-156 .elementor-nav-menu--main > .elementor-nav-menu > li > .elementor-nav-menu--dropdown,
+.elementor-156 .elementor-nav-menu--main li .sub-menu,
+.elementor-156 .elementor-nav-menu__container.elementor-nav-menu--dropdown {
+    margin-top: 0 !important;
+    padding-top: 16px !important; /* creates a hover-safe zone inside */
+    top: 100% !important;
+    left: 0 !important;
+    position: absolute !important;
+}
+
+/* ── Dropdown panel styling ── */
+.elementor-156 .elementor-nav-menu--dropdown,
+.elementor-156 .elementor-nav-menu--main .sub-menu,
+.elementor-156 .elementor-nav-menu__container.elementor-nav-menu--dropdown {
+    background-color: var(--rv-navy) !important;
+    border-top: 3px solid var(--rv-crimson) !important;
+    border-radius: 0 0 6px 6px !important;
+    box-shadow: var(--rv-shadow) !important;
+    min-width: 280px !important;
+    overflow: hidden !important;
+}
+
+/* ── Dropdown links ── */
+.elementor-156 .elementor-nav-menu--dropdown a,
+.elementor-156 .elementor-nav-menu--dropdown .elementor-item,
+.elementor-156 .elementor-nav-menu--dropdown .elementor-sub-item,
+.elementor-156 .sub-menu a {
+    color: #e8e8f0 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    padding: 12px 22px !important;
+    display: block !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+    transition: background 0.18s ease, color 0.18s ease, padding 0.15s ease !important;
+    background-color: transparent !important;
+}
+
+.elementor-156 .elementor-nav-menu--dropdown a:hover,
+.elementor-156 .elementor-nav-menu--dropdown .elementor-item:hover,
+.elementor-156 .elementor-nav-menu--dropdown .elementor-sub-item:hover,
+.elementor-156 .sub-menu a:hover,
+.elementor-156 .elementor-nav-menu--dropdown a:focus,
+.elementor-156 .elementor-nav-menu--dropdown a.elementor-item-active {
+    color: #ffffff !important;
+    background-color: var(--rv-crimson) !important;
+    padding-left: 28px !important;
+}
+
+/* Last item no border */
+.elementor-156 .sub-menu li:last-child a {
+    border-bottom: none !important;
+}
+
+/* ── "Get a Quote" button ── */
+.elementor-element-ef6cf47 .elementor-button,
+.elementor-element-a849e8f .elementor-button {
+    background-color: var(--rv-crimson) !important;
+    color: var(--rv-white) !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    padding: 10px 22px !important;
+    border-radius: 3px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(162,3,3,0.25) !important;
+}
+
+.elementor-element-ef6cf47 .elementor-button:hover,
+.elementor-element-a849e8f .elementor-button:hover {
+    background-color: var(--rv-crimson-bright) !important;
+    box-shadow: 0 4px 16px rgba(162,3,3,0.4) !important;
+}
+
+/* ============================================================
+   SECTION 2 – GLOBAL TYPOGRAPHY & THEME UNIFICATION
+   ============================================================ */
+
+/* Override elementor theme tokens to unify palette */
+.elementor-kit-9 {
+    --e-global-color-primary: var(--rv-navy) !important;
+    --e-global-color-secondary: var(--rv-navy-light) !important;
+    --e-global-color-accent: var(--rv-text-mid) !important;
+}
+
+/* Body base */
+body {
+    font-family: 'Poppins', 'Nunito Sans', sans-serif !important;
+    color: var(--rv-text-dark) !important;
+    background-color: var(--rv-white) !important;
+}
+
+/* Push content below fixed nav */
+body .site-main,
+body #content {
+    padding-top: 80px;
+}
+
+/* All headings – unified navy */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif !important;
+    color: var(--rv-navy) !important;
+}
+
+/* Elementor heading widgets – unified navy (not !important to let page-specific win) */
+.elementor-heading-title {
+    font-family: 'Poppins', sans-serif;
+    color: var(--rv-navy);
+}
+
+/* Accent/label titles (small uppercase labels above headings) */
+.elementor-element .elementor-heading-title[style*="letter-spacing"],
+.elementor-widget-heading .elementor-heading-title.elementor-size-default {
+    /* Do not override – kept as-is per element */
+}
+
+/* ── Buttons – global navy fill ── */
+.elementor-kit-9 .elementor-button,
+.elementor-kit-9 button,
+.elementor-kit-9 input[type="submit"],
+.elementor-kit-9 input[type="button"] {
+    background-color: var(--rv-navy) !important;
+    color: var(--rv-white) !important;
+    border-radius: 3px !important;
+    font-family: 'Poppins', sans-serif !important;
+    transition: background 0.2s, box-shadow 0.2s !important;
+}
+
+.elementor-kit-9 .elementor-button:hover,
+.elementor-kit-9 button:hover,
+.elementor-kit-9 input[type="submit"]:hover {
+    background-color: var(--rv-crimson) !important;
+    box-shadow: 0 4px 16px rgba(162,3,3,0.3) !important;
+}
+
+/* Red accent elements – keep crimson */
+.elementor-element .elementor-heading-title[style*="color:#BC0A20"],
+.elementor-element .elementor-heading-title[style*="color:#A20303"],
+[style*="color:#BC0A20"],
+[style*="color:#A20303"] {
+    color: var(--rv-crimson) !important;
+}
+
+/* ── Links ── */
+a, a:visited {
+    color: var(--rv-navy);
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+a:hover {
+    color: var(--rv-crimson);
+    text-decoration: none;
+}
+
+/* ── Icons ── */
+.elementor-icon,
+.elementor-icon-list-icon i,
+.elementor-icon-box-icon .elementor-icon {
+    color: var(--rv-crimson) !important;
+    fill: var(--rv-crimson) !important;
+    transition: color 0.18s ease !important;
+}
+
+/* ── Section backgrounds ── */
+/* Light offwhite sections for alternating rhythm */
+.elementor-section[data-settings*="\"background_background\":\"classic\""] .elementor-container > .elementor-column > .elementor-widget-wrap {
+    /* inherits from elementor */
+}
+
+/* ============================================================
+   SECTION 3 – HERO SECTIONS (All pages)
+   ============================================================ */
+
+/* Hero text should always be white over overlay */
+.elementor-section-height-min-height .elementor-heading-title,
+.elementor-section-height-min-height h1,
+.elementor-section-height-min-height h2,
+.elementor-section-height-min-height h3 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.55) !important;
+}
+
+/* Hero overlay – deep navy tint for premium look */
+.elementor-section-height-min-height > .elementor-background-overlay {
+    background-color: rgba(8, 25, 41, 0.55) !important;
+    opacity: 1 !important;
+}
+
+/* ============================================================
+   SECTION 4 – CONTACT PAGE TEXT FIXES
+   ============================================================ */
+.elementor-146 .elementor-element-12188c06 .elementor-heading-title {
+    color: var(--rv-gold-light) !important;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.4) !important;
+}
+
+.elementor-146 .elementor-element-4e3f2362 .elementor-heading-title,
+.elementor-146 .elementor-element-13a3921a .elementor-heading-title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5) !important;
+}
+
+/* Contact form inputs */
+.mf-input,
+.mf-input-wrapper input,
+.mf-input-wrapper textarea,
+.metform-form-content input:not([type="submit"]),
+.metform-form-content textarea,
+.metform-form-content select {
+    background-color: #ffffff !important;
+    color: #1a1a2e !important;
+    border: 1px solid #d0d4dc !important;
+    border-radius: 4px !important;
+    padding: 12px 15px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.mf-input:focus,
+.metform-form-content input:focus {
+    border-color: var(--rv-navy) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(15,43,70,0.12) !important;
+}
+
+.mf-input::placeholder,
+.metform-form-content input::placeholder,
+.metform-form-content textarea::placeholder {
+    color: #8a8a9a !important;
+    opacity: 1 !important;
+}
+
+/* Contact form submit */
+.metform-form-content button[type="submit"],
+.mf-form-wrapper button[type="submit"] {
+    background-color: var(--rv-navy) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    transition: background 0.2s !important;
+}
+
+.metform-form-content button[type="submit"]:hover {
+    background-color: var(--rv-crimson) !important;
+}
+
+/* ============================================================
+   SECTION 5 – SERVICE PAGES FORM SIDEBAR
+   ============================================================ */
+/* Quote form panel */
+.elementor-element-61d6c490 > .elementor-element-populated {
+    background-color: var(--rv-navy) !important;
+    padding: 40px !important;
+    border-radius: 6px !important;
+    box-shadow: var(--rv-shadow) !important;
+}
+
+/* Text inside the form sidebar – all white */
+.elementor-element-61d6c490 .elementor-heading-title,
+.elementor-element-61d6c490 h1,
+.elementor-element-61d6c490 h2,
+.elementor-element-61d6c490 h3,
+.elementor-element-61d6c490 span,
+.elementor-element-61d6c490 p,
+.elementor-element-61d6c490 label {
+    color: #ffffff !important;
+}
+
+/* Form submit button in sidebar */
+.elementor-element-2e18cc6c .elementor-button[type="submit"],
+.elementor-element-2e18cc6c .e-form__buttons__wrapper__button-next {
+    background-color: var(--rv-crimson) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.elementor-element-2e18cc6c .elementor-button[type="submit"]:hover {
+    background-color: var(--rv-crimson-bright) !important;
+}
+
+/* ============================================================
+   SECTION 6 – FOOTER (Unified Premium Dark)
+   ============================================================ */
+.elementor-167 .elementor-element-2eb15850,
+.elementor-167 .elementor-element-2eb15850:not(.elementor-motion-effects-element-type-background) {
+    background-color: var(--rv-navy-dark) !important;
+}
+
+.elementor-167 .elementor-element-4d668080 {
+    background-color: #05111e !important;
+}
+
+/* Footer gold divider line */
+.elementor-167 .elementor-element-79bfc383 > .elementor-element-populated {
+    border-color: rgba(201,168,76,0.3) !important;
+}
+
+/* Footer text */
+.elementor-167 .elementor-heading-title,
+.elementor-167 .elementor-icon-list-text,
+.elementor-167 .elementor-icon-list-item a,
+.elementor-167 span,
+.elementor-167 p {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+.elementor-167 .elementor-icon-list-item a:hover,
+.elementor-167 .elementor-icon-list-text:hover {
+    color: var(--rv-gold-light) !important;
+}
+
+/* Footer icons */
+.elementor-167 .elementor-icon-list-icon i,
+.elementor-167 .elementor-icon-list-icon svg {
+    color: var(--rv-gold) !important;
+    fill: var(--rv-gold) !important;
+}
+
+/* Footer logo box */
+.elementor-167 .elementor-element-c17c5ab img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    background: #fff !important;
+    padding: 14px 20px !important;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* ============================================================
+   SECTION 7 – PREMIUM MICRO-ANIMATIONS & POLISH
+   ============================================================ */
+
+/* Smooth transitions on all clickable elements */
+.elementor-button,
+.elementor-icon,
+.elementor-nav-menu--main .elementor-item,
+a {
+    transition: all 0.2s ease !important;
+}
+
+/* Card hover shadow lift */
+.elementor-widget-icon-box:hover,
+.elementor-widget-image:hover img {
+    transform: translateY(-3px);
+    box-shadow: var(--rv-shadow-hover);
+}
+
+/* ── Consistent section spacing ── */
+.elementor-section {
+    scroll-margin-top: 80px;
+}
+
+/* ── Image polish ── */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ── Remove underlines everywhere ── */
+a, a:hover, a:visited, a:active {
+    text-decoration: none !important;
+}
+
+/* ─── RESPONSIVE – Mobile nav ─── */
+@media (max-width: 767px) {
+    body .site-main,
+    body #content {
+        padding-top: 70px;
+    }
+
+    .elementor-156 .elementor-nav-menu--dropdown,
+    .elementor-156 .elementor-nav-menu__container.elementor-nav-menu--dropdown {
+        background-color: var(--rv-navy) !important;
+        padding-top: 0 !important;
+    }
+
+    /* Mobile hamburger */
+    .elementor-156 .elementor-menu-toggle {
+        background-color: var(--rv-navy) !important;
+    }
+
+    .elementor-156 .elementor-menu-toggle svg {
+        fill: #ffffff !important;
+        color: #ffffff !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .elementor-156 .elementor-nav-menu__container.elementor-nav-menu--dropdown {
+        background-color: var(--rv-navy) !important;
+    }
+}
